@@ -1,0 +1,24 @@
+.draft-results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-style: solid;
+  border-color: hsl(35, 90%, 79%);
+  background-color: hsl(35, 90%, 93%);
+  width: 30%;
+  padding: 2%;
+  margin-left: 2%;
+  margin-top: 2%;
+  border-radius: 10%;
+
+  .player-info {
+    width: 100%;
+  }
+
+  .player-image {
+    width: 120px;
+    height: 80px;
+    border-radius: 10%;
+    margin: 1%;
+  }
+}
