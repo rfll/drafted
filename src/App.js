@@ -1,4 +1,4 @@
-import DraftForm from './components/DraftForm';
+import PlayerResults from './components/PlayerResults';
 import data from './data/fakeData';
 import './App.css';
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <div>Mocks</div>
-      <DraftForm data={data} />
+      <PlayerResults data={data} />
     </div>
   );
 }
