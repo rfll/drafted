@@ -1,6 +1,6 @@
-import './PlayerForm.scss';
+import React from "react";
 
-export default function PlayerForm(props) {
+export default function PlayerSearch(props) {
 
   return (
     <div className='draft-results'>
