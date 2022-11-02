@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import useDebounce from "../hooks/useDebounce"
 
 export default function SearchBar(props) {
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
   // const term = useDebounce(value, 400);
 
   // const onSearch = useCallback(props.onSearch, [term]);
@@ -21,8 +21,8 @@ export default function SearchBar(props) {
           placeholder="Search Artists"
           name="search"
           type="text"
-          value={value}
-          onChange={event => setValue(event.target.value)}
+          value={props.term}
+          onChange={event => props.setTerm(event.target.value)}
         />
       </form>
     </section>
