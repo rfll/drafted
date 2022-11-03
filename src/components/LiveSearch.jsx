@@ -12,27 +12,28 @@ export default function LiveSearch(props) {
 
   const terms = useDebounce(term, 400);
 
-useEffect(() => {
-  // axios.get('../data/fakeData').then(response => {
-  //   setResults([...response.data.results])
-  //   console.log(response);
-  // });
+  useEffect(() => {
+    // axios.get('../data/fakeData').then(response => {
+    //   setResults([...response.data.results])
+    //   console.log(response);
+    // });
 
-  function loadData() {
-  return setResults([...fakeData.filter((c) => c.name.toLowerCase().includes(term.toLowerCase()))]);}
+    function loadData() {
+      return setResults([...fakeData.filter((c) => c.name.toLowerCase().includes(term.toLowerCase()))]);
+    }
 
-  loadData();
+    loadData();
 
-  // Object.entries(
-  //   fakeData
-  //     .filter((c) => c.name.toLowerCase().includes(term.toLowerCase()))
-  //     .reduce((res, c) => {
-  //       res[c.continent.name].push(c);
-  //       return res;
-  //     }, {})
-  // );
+    // Object.entries(
+    //   fakeData
+    //     .filter((c) => c.name.toLowerCase().includes(term.toLowerCase()))
+    //     .reduce((res, c) => {
+    //       res[c.continent.name].push(c);
+    //       return res;
+    //     }, {})
+    // );
 
-}, [terms]);
+  }, [terms]);
 
   return (
     <Fragment>
@@ -40,8 +41,13 @@ useEffect(() => {
         <img src="images/brand.png" alt="Brand" />
       </header>
       <main>
-        <SearchBar setTerm={setTerm} />
-        <Results key={results.name} results={results} />
+        <SearchBar
+          setTerm={setTerm}
+        />
+        <Results
+          key={results.name}
+          results={results}
+        />
       </main>
     </Fragment>
   );

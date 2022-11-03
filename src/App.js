@@ -11,10 +11,10 @@ function App() {
       <LiveSearch 
       data={fakeData}
       />
-      <PlayerResults
+      {/* <PlayerResults
         // data={data}
         data={fakeData}
-      />
+      /> */}
     </div>
   );
 }
