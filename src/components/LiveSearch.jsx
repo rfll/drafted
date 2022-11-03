@@ -19,7 +19,7 @@ useEffect(() => {
   // });
 
   function loadData() {
-  return setResults([...fakeData]);}
+  return setResults([...fakeData.filter((c) => c.name.toLowerCase().includes(term.toLowerCase()))]);}
 
   loadData();
 
@@ -41,7 +41,7 @@ useEffect(() => {
       </header>
       <main>
         <SearchBar setTerm={setTerm} />
-        <Results key={results.name} results={results} term={term} />
+        <Results key={results.name} results={results} />
       </main>
     </Fragment>
   );
