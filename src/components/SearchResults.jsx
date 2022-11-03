@@ -4,12 +4,12 @@ import React from "react";
 import PlayerForm from "./PlayerForm";
 
 export default function Results(props) {
-  console.log(props)
+  // console.log(props)
   // const { results } = props;
   const results = props.results;
   // const term = props.term;
 
-  // console.log(results);
+  console.log(results);
   // console.log(term);
 
   return results.map(player => {
