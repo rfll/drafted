@@ -13,6 +13,10 @@ export default function LiveSearch(props) {
   const terms = useDebounce(term, 400);
 
   useEffect(() => {
+    if (!terms) {
+      return setResults([])
+    }
+
     // axios.get('../data/fakeData').then(response => {
     //   setResults([...response.data.results])
     //   console.log(response);
@@ -24,21 +28,12 @@ export default function LiveSearch(props) {
 
     loadData();
 
-    // Object.entries(
-    //   fakeData
-    //     .filter((c) => c.name.toLowerCase().includes(term.toLowerCase()))
-    //     .reduce((res, c) => {
-    //       res[c.continent.name].push(c);
-    //       return res;
-    //     }, {})
-    // );
-
   }, [terms]);
 
   return (
     <Fragment>
       <header className="logo">
-        <img src="images/brand.png" alt="Brand" />
+        {/* <img src="images/brand.png" alt="Brand" /> */}
       </header>
       <main>
         <SearchBar
