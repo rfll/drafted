@@ -4,7 +4,12 @@ export default function PlayerForm(props) {
 
   return (
     <div className='draft-results'>
-      <div className='player-info' key={props.name}><img className='player-image' src={props.image} alt='draftee'></img> {props.name} {props.team}</div>
+      <img className='player-image' src={props.image} alt='draftee'></img>
+      <div className='player-info' key={props.name}>
+        {/* <img className='player-image' src={props.image} alt='draftee'></img>  */}
+        <div className='player-name'>{props.name}</div> 
+        <div className='player-team'>{props.team}</div>
+        </div>
     </div>
   )
 }

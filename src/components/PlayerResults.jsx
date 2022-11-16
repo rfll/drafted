@@ -1,11 +1,11 @@
 import './PlayerResults.scss';
-import PlayerForm from './PlayerForm';
+import PlayerSearch from './PlayerSearch';
 
 export default function DraftForm(props) {
   const listNames = props.data;
 
   const showData = listNames.map((playerName) => {
-  return <PlayerForm key={playerName.name} {...playerName} />
+  return <PlayerSearch key={playerName.name} {...playerName} />
 })
   
   return (

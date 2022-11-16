@@ -18,7 +18,7 @@ export default function SearchBar(props) {
         <input
           className="radius"
           spellCheck="false"
-          placeholder="Search Players"
+          placeholder="Search players"
           name="search"
           type="text"
           value={props.term}
