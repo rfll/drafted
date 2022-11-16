@@ -15,6 +15,7 @@ function App() {
         // data={data}
         data={fakeData}
       /> */}
+      {/* <PlayerResults /> */}
     </div>
   );
 }
