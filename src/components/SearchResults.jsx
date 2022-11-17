@@ -1,27 +1,25 @@
-import React from "react";
-
 // import PlayerSearch from "./PlayerSearch"
 import PlayerForm from "./PlayerForm";
-import PlayerSearch from "./PlayerSearch";
+import DraftForm from "./DraftForm";
 
-export default function Results(props) {
-  // console.log(props)
-  // const { results } = props;
+
+
+export default function SearchResults(props) {
   const results = props.results;
-  // const term = props.term;
+  // const draftOrderArray = props.storeData;
 
-  // console.log(results);
-  // console.log(term);
+  function onClick(e, player) {
+    props.storeData.push(player)
 
-  const players = [];
+    console.log(props.storeData);
 
-  const onClick = function(e) {
-    players.push(e)
+    props.setTerm("");
+    props.setResults([]);
   }
 
   return results.map(player => {
-    // console.log(player.name);
     return <PlayerForm key={player.name} {...player}
+      onClick={onClick}
     />;
   });
 }
