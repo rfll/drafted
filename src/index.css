@@ -20,6 +20,10 @@ input:focus {
   outline: none;
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
 input[type="text"] {
   /* background-color: #201f2f; */
   background-color: #e6e6e6;
