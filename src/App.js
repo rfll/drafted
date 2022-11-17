@@ -1,21 +1,19 @@
-import PlayerResults from './components/PlayerResults';
-// import data from './data/fakeData';
-import fakeData from './data/fakeDataArray';
+// import fakeData from './data/fakeDataArray';
 import './App.css';
 import LiveSearch from './components/LiveSearch';
+import DraftForm from './components/DraftForm';
+import storeData from './data/storeData';
 
 function App() {
   return (
     <div>
       <div>Mocks</div>
       <LiveSearch 
-      data={fakeData}
+      // data={fakeData}
       />
-      {/* <PlayerResults
-        // data={data}
-        data={fakeData}
-      /> */}
-      {/* <PlayerResults /> */}
+      <DraftForm 
+        storeData={storeData}
+      />
     </div>
   );
 }
