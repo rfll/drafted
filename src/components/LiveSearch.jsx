@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import SearchBar from "./SearchBar";
-import Results from "./SearchResults";
-// import fakeData from "../data/fakeData";
+import SearchResults from "./SearchResults";
 import fakeData from "../data/fakeDataArray";
 import useDebounce from "../hooks/useDebounce";
+import storeData from "../data/storeData";
 
 export default function LiveSearch(props) {
   const [term, setTerm] = useState("");
@@ -39,9 +39,14 @@ export default function LiveSearch(props) {
         <SearchBar
           setTerm={setTerm}
         />
-        <Results
+        <SearchResults
           key={results.name}
           results={results}
+          setResults={setResults}
+          storeData={storeData}
+          term={term}
+          setTerm={setTerm}
+          terms={terms}
         />
       </main>
     </Fragment>
