@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { draftContext } from "../providers/DraftProvider";
+
 export default function SearchBar(props) {
+  const { searchTerm, setSearchTerm } = useContext(draftContext);
 
   return (
     <section className="search">
@@ -9,8 +13,8 @@ export default function SearchBar(props) {
           placeholder="Search Players"
           name="search"
           type="text"
-          value={props.term}
-          onChange={event => props.setTerm(event.target.value)}
+          value={searchTerm}
+          onChange={event => setSearchTerm(event.target.value)}
         />
       </form>
     </section>
