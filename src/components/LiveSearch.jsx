@@ -1,34 +1,31 @@
-import React, { Fragment, useState, useEffect } from "react";
-// import axios from "axios";
+import React, { Fragment, useContext } from "react";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 import fakeData from "../data/fakeDataArray";
 import useDebounce from "../hooks/useDebounce";
 import storeData from "../data/storeData";
+import { draftContext } from "../providers/DraftProvider";
 
 export default function LiveSearch(props) {
-  const [term, setTerm] = useState("");
-  const [results, setResults] = useState([]);
+  const { searchResults, searchTerm } = useContext(draftContext);
 
-  const terms = useDebounce(term, 400);
+  // const [term, setTerm] = useState("");
+  // const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    if (!terms) {
-      return setResults([])
-    }
+  // const terms = useDebounce(term, 400);
 
-    // axios.get('../data/fakeData').then(response => {
-    //   setResults([...response.data.results])
-    //   console.log(response);
-    // });
+  // useEffect(() => {
+  //   if (!terms) {
+  //     return setResults([])
+  //   }
 
-    function loadData() {
-      return setResults([...fakeData.filter((c) => c.name.toLowerCase().includes(term.toLowerCase()))]);
-    }
+  //   function loadData() {
+  //     return setResults([...fakeData.filter((c) => c.name.toLowerCase().includes(term.toLowerCase()))]);
+  //   }
 
-    loadData();
+  //   loadData();
 
-  }, [terms]);
+  // }, [terms]);
 
   return (
     <Fragment>
@@ -37,16 +34,16 @@ export default function LiveSearch(props) {
       </header>
       <main>
         <SearchBar
-          setTerm={setTerm}
+          // setTerm={setTerm}
         />
         <SearchResults
-          key={results.name}
-          results={results}
-          setResults={setResults}
+          // key={results.name}
+          // results={results}
+          // setResults={setResults}
           storeData={storeData}
-          term={term}
-          setTerm={setTerm}
-          terms={terms}
+          // term={term}
+          // setTerm={setTerm}
+          // terms={terms}
         />
       </main>
     </Fragment>
