@@ -59,15 +59,51 @@ section {
   justify-content: center;
 }
 
+.selected-players{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+}
+
+.selected-player-image {
+  width: 120px;
+  height: 80px;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.selected-player-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #201f2f;
+  width: 100%;
+  padding-left: 1rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  /* background: #201f2f; */
+  background-color: hsl(35, 95%, 84%);
+  overflow: hidden;
+}
+
+.selected-player-name {
+  font-weight: 700;
+}
+
+.selected-player-team {
+  font-size: 1.2rem;
+}
+
 .radius {
   border-radius: 0.5rem;
 }
 
-.search {
+/* .search {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+  width: 100%;
+} */
 
 .search__form {
   flex-grow: 1;
