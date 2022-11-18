@@ -4,7 +4,11 @@ export default function PlayerSearch(props) {
 
   return (
     <div className='draft-results'>
-      <div className='player-info' key={props.name}><img className='player-image' src={props.image} alt='draftee'></img> {props.name} {props.team}</div>
+      <div className='selected-player-info' key={props.name}>
+        <img className='selected-player-image' src={props.image} alt='draftee'></img>
+        <div className='selected-player-name'>{props.name}</div> 
+        <div className='selected-player-team'>{props.team}</div>
+        </div>
     </div>
   )
 }
