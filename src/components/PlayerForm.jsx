@@ -1,9 +1,12 @@
+import { useContext } from 'react';
+import { draftContext } from '../providers/DraftProvider';
 import './PlayerForm.scss';
 
 export default function PlayerForm(props) {
+  const { onClick } = useContext(draftContext);
 
   return (
-    <div className='draft-results' onClick={e => props.onClick(e, props)}>
+    <div className='draft-results' onClick={e => onClick(e, props)}>
       <img className='player-image' src={props.image} alt='draftee'></img>
       <div className='player-info' key={props.name}>
         {/* <img className='player-image' src={props.image} alt='draftee'></img>  */}
