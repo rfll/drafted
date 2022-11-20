@@ -2,7 +2,6 @@ import { createContext, useState, useEffect } from "react";
 import fakeData from "../data/fakeDataArray";
 import useDebounce from "../hooks/useDebounce";
 import storeData from "../data/storeData";
-import DraftForm from "../components/DraftForm";
 
 export const draftContext = createContext();
 

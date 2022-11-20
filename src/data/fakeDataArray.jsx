@@ -1,7 +1,7 @@
 const fakeData = [
   {
     'name': 'Victor Wembanyama',
-    'team': 'Metropolitans 92',
+    'team': 'Boulogne-Levallois Metropolitans 92',
     'image': 'https://phantom-marca.unidadeditorial.es/0d3054d4a0a5e654779ba2a8318a8594/resize/1320/f/jpg/assets/multimedia/imagenes/2022/10/14/16657449012941.jpg'
   },
   {
