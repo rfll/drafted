@@ -1,13 +1,9 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
-import fakeData from "../data/fakeDataArray";
-import useDebounce from "../hooks/useDebounce";
-import storeData from "../data/storeData";
-import { draftContext } from "../providers/DraftProvider";
+// import storeData from "../data/storeData";
 
 export default function LiveSearch(props) {
-  const { searchResults, searchTerm } = useContext(draftContext);
 
   return (
     <Fragment>
