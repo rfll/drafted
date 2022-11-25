@@ -15,7 +15,7 @@ function App() {
         />
         <div className='selected-players'>
         <DraftForm
-          // storeData={storeData}
+          storeData={storeData}
         /></div>
       </DraftProvider>
     </div>
