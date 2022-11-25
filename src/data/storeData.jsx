@@ -1,4 +1,4 @@
-const storeData = []
+const storeData = [];
 
 console.log(storeData)
 
