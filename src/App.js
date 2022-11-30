@@ -2,8 +2,9 @@
 import './App.css';
 import LiveSearch from './components/LiveSearch';
 import DraftForm from './components/DraftForm';
-import storeData from './data/storeData';
+// import storeData from './data/storeData';
 import DraftProvider from './providers/DraftProvider';
+import storeDataObject from './data/storeDataObject';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         />
         <div className='selected-players'>
         <DraftForm
-          storeData={storeData}
+          // storeData={storeData}
+          storeDataObject={storeDataObject}
         /></div>
       </DraftProvider>
     </div>
