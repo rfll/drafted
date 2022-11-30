@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import fakeData from "../data/fakeDataArray";
 import useDebounce from "../hooks/useDebounce";
 import storeData from "../data/storeData";
+import storeDataObject from "../data/storeDataObject";
 
 export const draftContext = createContext();
 
@@ -9,11 +10,17 @@ export const draftContext = createContext();
 export default function DraftProvider(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedPlayer, setSelectedPlayer] = useState(storeData);
+  const [selectedPlayer, setSelectedPlayer] = useState(storeDataObject);
   const [updatedPlayer, setUpdatedPlayer] = useState();
-  const [draftPosition, setDraftPosition] = useState();
+  const [draftPosition, setDraftPosition] = useState({
+    ...selectedPlayer
+  });
+  const [index, setIndex] = useState(1);
 
+  // This is state
   const debounceTerm = useDebounce(searchTerm, 400);
+
+  // console.log(draftPosition)
 
   useEffect(() => {
     if (!debounceTerm) {
@@ -29,27 +36,41 @@ export default function DraftProvider(props) {
   }, [debounceTerm]);
 
 
-  useEffect(() => {
-    // storeData.push(updatedPlayer);
-    // setSelectedPlayer(storeData)
-
-    storeData.splice(0, 1, updatedPlayer)
-    
-  }, [updatedPlayer])
-
-
   function onClick(e, player) {
     // storeData.push(player)
 
-    // console.log(storeData);
+    // console.log(e);
 
-    // setSelectedPlayer([...selectedPlayer, player]);
+    setSelectedPlayer({
+      ...selectedPlayer,
+      [index]: {
+        position: index,
+        name: player.name,
+      team: player.team,
+      image: player.image}
+    })
+
+    console.log(selectedPlayer)
+
     // selectedPlayer.splice(0, 1, player);
+    setIndex(index + 1)
     setUpdatedPlayer(player)
     setSearchTerm("");
     setSearchResults([]);
   }
 
+
+  // useEffect(() => {
+  //     // storeData.push(updatedPlayer);
+  //     // setSelectedPlayer(storeData)
+
+  //     // storeData.splice(0, 1, updatedPlayer)
+
+  //     // setSelectedPlayer([...selectedPlayer, updatedPlayer])
+
+  //     console.log(selectedPlayer)
+
+  //   }, [updatedPlayer])
 
   function changeDraftOrder(e, player) {
 
@@ -62,7 +83,8 @@ export default function DraftProvider(props) {
     selectedPlayer, setSelectedPlayer,
     updatedPlayer, setUpdatedPlayer,
     draftPosition, setDraftPosition,
-    onClick
+    onClick,
+    index, setIndex
   }
 
   return (
