@@ -10,12 +10,7 @@ export default function DraftForm(props) {
 
   return Object.values(selectedPlayer).map((player, index) => {
 
-    // console.log('player', player);
-    // console.log('index', index);
-    // console.log(player.position)
-
     if (!player.name) {
-      // console.log('goodbye')
       return (
         <div className='draft-position-container' key={index}>
           <PlayerSearchEmpty position={player.position} />
@@ -23,7 +18,6 @@ export default function DraftForm(props) {
     }
 
     if (player.name) {
-      // console.log('bonjour')
       return (
         <div className='draft-position-container' key={index}>
           <PlayerSearch index={index + 1} {...player} />
