@@ -10,7 +10,8 @@ export const draftContext = createContext();
 export default function DraftProvider(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedPlayer, setSelectedPlayer] = useState(storeDataObject);
+  // const [selectedPlayer, setSelectedPlayer] = useState(storeDataObject);
+  const [selectedPlayer, setSelectedPlayer] = useState([]);
   const [updatedPlayer, setUpdatedPlayer] = useState();
   const [draftPosition, setDraftPosition] = useState({
     ...selectedPlayer

@@ -101,11 +101,12 @@ section {
   overflow: hidden;
   /* border-bottom: solid gray 1px; */
   box-shadow: 1px 1px 8px darkgray;
+  transition: all .2s ease-out;
 }
 
 .selected-player-info:hover {
   transform: scale(1.01);
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in;
   cursor: grab;
 }
 
@@ -144,6 +145,12 @@ section {
   display: flex;
   /* color: #fefefe; */
   margin-bottom: 0.5rem;
+  transition: all .2s ease-out;
+}
+
+.draft-results:hover {
+  transform: scale(1.01);
+  transition: all .2s ease-in;
 }
 
 .player-image {
