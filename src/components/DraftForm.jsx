@@ -10,19 +10,13 @@ export default function DraftForm(props) {
 
   return Object.values(selectedPlayer).map((player, index) => {
 
-    if (!player.name) {
-      return (
-        <div className='draft-position-container' key={index}>
-          <PlayerSearchEmpty position={player.position} />
-        </div>)
-    }
-
-    if (player.name) {
-      return (
-        <div className='draft-position-container' key={index}>
-          <PlayerSearch index={index + 1} {...player} />
-        </div>)
-    }
+    return (
+      <div className='draft-position-container' key={index}>
+        {!player.name
+          ? <PlayerSearchEmpty position={player.position} />
+          : <PlayerSearch index={index + 1} {...player} />
+        }
+      </div>)
 
 
   })

@@ -46,6 +46,4 @@ const storeDataObject = {
   }
 };
 
-// console.log(storeDataObject)
-
 export default storeDataObject;
