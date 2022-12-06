@@ -10,8 +10,7 @@ export const draftContext = createContext();
 export default function DraftProvider(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  // const [selectedPlayer, setSelectedPlayer] = useState(storeDataObject);
-  const [selectedPlayer, setSelectedPlayer] = useState([]);
+  const [selectedPlayer, setSelectedPlayer] = useState(storeDataObject);
   const [updatedPlayer, setUpdatedPlayer] = useState();
   const [draftPosition, setDraftPosition] = useState({
     ...selectedPlayer
@@ -50,8 +49,6 @@ export default function DraftProvider(props) {
       team: player.team,
       image: player.image}
     })
-
-    console.log(selectedPlayer)
 
     // selectedPlayer.splice(0, 1, player);
     setIndex(index + 1)
