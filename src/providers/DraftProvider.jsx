@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
-import fakeData from "../data/fakeDataArray";
+// import fakeData from "../data/fakeDataArray";
+import fakeDataObject from "../data/fakeDataObject";
 import useDebounce from "../hooks/useDebounce";
 import storeData from "../data/storeData";
 import storeDataObject from "../data/storeDataObject";
@@ -10,17 +11,19 @@ export const draftContext = createContext();
 export default function DraftProvider(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedPlayer, setSelectedPlayer] = useState(storeDataObject);
+  // const [selectedPlayer, setSelectedPlayer] = useState(storeDataObject);
+  const [selectedPlayer, setSelectedPlayer] = useState(fakeDataObject.position);
   const [updatedPlayer, setUpdatedPlayer] = useState();
   const [draftPosition, setDraftPosition] = useState({
     ...selectedPlayer
   });
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
 
   // This is state
   const debounceTerm = useDebounce(searchTerm, 400);
 
-  // console.log(draftPosition)
+  const dndDraftPosition = selectedPlayer.map(positionId => selectedPlayer[positionId]);
+  // console.log(dndDraftPosition)
 
   useEffect(() => {
     if (!debounceTerm) {
@@ -28,7 +31,7 @@ export default function DraftProvider(props) {
     }
 
     function loadData() {
-      return setSearchResults([...fakeData.filter((c) => c.name.toLowerCase().includes(debounceTerm.toLowerCase()))]);
+      return setSearchResults([...fakeDataObject.players.filter((c) => c.name.toLowerCase().includes(debounceTerm.toLowerCase()))]);
     }
 
     loadData();
@@ -37,22 +40,23 @@ export default function DraftProvider(props) {
 
 
   function onClick(e, player) {
-    // storeData.push(player)
 
     // console.log(e);
+    // console.log(player)
 
-    setSelectedPlayer({
-      ...selectedPlayer,
-      [index]: {
-        position: index,
-        name: player.name,
-      team: player.team,
-      image: player.image}
-    })
+    // setSelectedPlayer({
+    //   ...selectedPlayer,
+    //   [index]: {
+    //     position: index,
+    //     name: player.name,
+    //   team: player.team,
+    //   image: player.image}
+    // })
 
-    // selectedPlayer.splice(0, 1, player);
+    selectedPlayer.splice(index, 1, player);
     setIndex(index + 1)
-    setUpdatedPlayer(player)
+
+    console.log(fakeDataObject.position)
     setSearchTerm("");
     setSearchResults([]);
   }
