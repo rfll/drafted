@@ -22,8 +22,26 @@ export default function DraftProvider(props) {
   // This is state
   const debounceTerm = useDebounce(searchTerm, 400);
 
-  const dndDraftPosition = selectedPlayer.map(positionId => selectedPlayer[positionId]);
+  // const dndDraftPosition = selectedPlayer.map(positionId => selectedPlayer[positionId]);
   // console.log(dndDraftPosition)
+
+  const onDragEnd = result => {
+    const { source, destination } = result;
+
+    if (!destination) return;
+
+    if (source.index === destination.index) return;
+
+    let add;
+    let active = selectedPlayer;
+
+    if (source.index !== destination.index) {
+      add = active[source.index]
+      active.splice(source.index, 1)
+      active.splice(destination.index, 0, add)
+      setSelectedPlayer(active)
+    }
+  }
 
   useEffect(() => {
     if (!debounceTerm) {
@@ -86,6 +104,7 @@ export default function DraftProvider(props) {
     updatedPlayer, setUpdatedPlayer,
     draftPosition, setDraftPosition,
     onClick,
+    onDragEnd,
     index, setIndex
   }
 
