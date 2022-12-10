@@ -9,32 +9,31 @@ import { Droppable } from 'react-beautiful-dnd';
 export default function DraftForm(props) {
   const { selectedPlayer, updatedPlayer, setIndex } = useContext(draftContext);
 
+  return (
+    <Droppable droppableId='draft-order' >
+      {(provided) => {
+        return (
+          <div className='selected-players' ref={provided.innerRef} {...provided.droppableProps}>
+            {provided.placeholder}
+            {selectedPlayer.map((player, index) => {
 
-
-  // return Object.values(selectedPlayer).map((player, index) => {
-
-  return selectedPlayer.map((player, index) => {
-
-    return (
-      <div className='draft-position-container' key={index}>
-        {!player.name
-          ? <PlayerSearchEmpty position={index + 1} />
-          : <Droppable droppableId={selectedPlayer} >
-            {(provided) => (
-              <PlayerSearch
-                position={index + 1}
-                index={index}
-                {...player}
-                innerRef={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {provided.placeholder}
-              </PlayerSearch>
-            )}
-          </Droppable>
-        }
-      </div>)
-
-
-  })
+              return (
+                <div className='draft-position-container' >
+                  {!player.name
+                    ? <PlayerSearchEmpty
+                      position={index + 1}
+                      index={index} />
+                    : <PlayerSearch
+                      position={index + 1}
+                      index={index}
+                      {...player}
+                    />}
+                </div>
+              )
+            })
+            }
+          </div>)
+      }}
+    </Droppable>
+  )
 }

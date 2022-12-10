@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import DraftProvider from './providers/DraftProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <DraftProvider>
     <App />
-  </React.StrictMode>
+  </DraftProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

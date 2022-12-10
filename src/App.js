@@ -3,30 +3,25 @@ import './App.css';
 import LiveSearch from './components/LiveSearch';
 import DraftForm from './components/DraftForm';
 // import storeData from './data/storeData';
-import DraftProvider from './providers/DraftProvider';
+import DraftProvider, { draftContext } from './providers/DraftProvider';
 // import storeDataObject from './data/storeDataObject';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { useContext } from 'react';
 
 function App() {
-
-  // onDragEnd = result => {
-
-  // }
+  const { onDragEnd } = useContext(draftContext);
 
   return (
-    <div>
+    <DragDropContext 
+    onDragEnd={onDragEnd}>
+      <div>
       <div>Mocks</div>
-      <DraftProvider>
         <LiveSearch />
-        <DragDropContext
-          // onDragEnd={onDragEnd}
-        >
-          <div className='selected-players'>
-            <DraftForm />
-          </div>
-        </DragDropContext>
-      </DraftProvider>
+        {/* <div className='selected-players'> */}
+          <DraftForm />
+        {/* </div> */}
     </div>
+    </DragDropContext>
   );
 }
 

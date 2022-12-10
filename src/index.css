@@ -68,6 +68,7 @@ section {
   grid-template-columns: repeat(1, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+  margin-top: 100px;
 }
 
 .draft-position {
@@ -102,6 +103,8 @@ section {
   /* border-bottom: solid gray 1px; */
   box-shadow: 1px 1px 8px darkgray;
   transition: all .2s ease-out;
+  top: auto !important;
+  left: auto !important;
 }
 
 .selected-player-info:hover {
@@ -137,7 +140,7 @@ section {
 .search__form {
   flex-grow: 1;
   top: 30px;
-  position: fixed;
+  /* position: static; */
   width: 34%;
 }
 
@@ -148,10 +151,10 @@ section {
   transition: all .2s ease-out;
 }
 
-.draft-results:hover {
+/* .draft-results:hover {
   transform: scale(1.01);
   transition: all .2s ease-in;
-}
+} */
 
 .player-image {
   width: 120px;
