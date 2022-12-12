@@ -59,41 +59,16 @@ export default function DraftProvider(props) {
 
   function onClick(e, player) {
 
-    // console.log(e);
-    // console.log(player)
-
-    // setSelectedPlayer({
-    //   ...selectedPlayer,
-    //   [index]: {
-    //     position: index,
-    //     name: player.name,
-    //   team: player.team,
-    //   image: player.image}
-    // })
-
     selectedPlayer.splice(index, 1, player);
     setIndex(index + 1)
 
-    console.log(fakeDataObject.position)
+    // console.log(fakeDataObject.position)
     setSearchTerm("");
     setSearchResults([]);
   }
 
-
-  // useEffect(() => {
-  //     // storeData.push(updatedPlayer);
-  //     // setSelectedPlayer(storeData)
-
-  //     // storeData.splice(0, 1, updatedPlayer)
-
-  //     // setSelectedPlayer([...selectedPlayer, updatedPlayer])
-
-  //     console.log(selectedPlayer)
-
-  //   }, [updatedPlayer])
-
-  function changeDraftOrder(e, player) {
-
+  function clickDraftSlot(e, player) {
+    setIndex(player.index);
   }
 
 
@@ -104,6 +79,7 @@ export default function DraftProvider(props) {
     updatedPlayer, setUpdatedPlayer,
     draftPosition, setDraftPosition,
     onClick,
+    clickDraftSlot,
     onDragEnd,
     index, setIndex
   }
