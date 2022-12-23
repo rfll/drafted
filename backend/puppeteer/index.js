@@ -1,13 +1,13 @@
 const puppeteer = require('puppeteer');
 
-async function scraper() {
+(async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   // await page.goto('https://www.sports-reference.com/cbb/players/jarace-walker-1.html', { waitUntil: 'domcontentloaded' });
   await page.goto('https://www.sports-reference.com/cbb/players/cam-whitmore-1.html', { waitUntil: 'domcontentloaded' });
 
 
-  const data = await page.$$eval('#wrap', option => {
+  const [data] = await page.$$eval('#wrap', option => {
     return option.map(row => {
       return {
         name: row.querySelector("#meta > div > h1 > span").textContent,
@@ -39,7 +39,5 @@ async function scraper() {
   console.log(data);
 
   await browser.close();
-}
+})();
 
-
-scraper();
