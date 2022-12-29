@@ -1,11 +1,13 @@
 {
   "dependencies": {
     "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "mongodb": "^4.13.0",
     "puppeteer": "^19.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node puppeteer/index.js"
+    "start": "node server.js",
+    "scrape": "node puppeteer/index.js"
   }
 }
