@@ -46,6 +46,7 @@ axios(config)
     .then(function (response) {
         // console.log(JSON.stringify(response.data));
         console.log(response.data.document);
+        return response.data.document;
     })
     .catch(function (error) {
         console.log(error);
