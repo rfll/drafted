@@ -10,43 +10,13 @@ const axios = require('axios');
 
   const client = new MongoClient(uri);
 
+  const database = client.db("draftApp");
+  const collection = database.collection("playerData");
 
-    // try {
-      const database = client.db("draftApp");
-      const collection = database.collection("playerData");
-      // create a filter for a movie to update
-      // const filter = { title: "Random Harvest" };
+  const playerDataAll = await collection.findOne();
+  const playerData = playerDataAll.players;
 
-      // this option instructs the method to create a document if no documents match the filter
-      // const options = { upsert: true };
-
-      // create a document that sets the plot of the movie
-      // const updateDoc = {
-      //   $set: {
-      //     plot: `A harvest of random numbers, such as: ${Math.random()}`
-
-      //   },
-
-      const playerDataAll = await collection.findOne();
-      const playerData = playerDataAll.players;
-
-      console.log(playerData);
-
-      
-
-      // }
-
-      // const result = await movies.updateOne(filter, updateDoc, options);
-      // console.log(
-      //   `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
-      // );
-
-    // } 
-    // finally {
-      await client.close();
-
-    // }
-  // run().catch(console.dir);
+  // console.log(playerData);
 
 
   const browser = await puppeteer.launch();
@@ -54,7 +24,7 @@ const axios = require('axios');
 
   for (let i = 0; i < playerData.length; i++) {
     const url = playerData[i].url;
-    
+
     await page.goto(`${url}`, { waitUntil: 'domcontentloaded' });
 
 
@@ -87,8 +57,47 @@ const axios = require('axios');
       })
     })
 
-    console.log(data);
+    // console.log(data.name);
+
+    const filter = { "players.name" : data.name };
+    const updateDoc = {
+      $set: {
+        "players.$" : {
+          "name": data.name,
+          "url": url,
+          "height": data.height,
+          "weight": data.weight,
+          "team": data.team,
+          "gamesPlayed": data.gamesPlayed,
+          "minutesPerGame": data.minutes,
+          "pointsPerGame": data.points,
+          "assistsPerGame": data.assists,
+          "reboundsPerGame": data.rebounds,
+          "stealPerGame": data.steals,
+          "blocksPerGame": data.blocks,
+          "turnoversPerGame": data.turnovers,
+          "foulsPerGame": data.fouls,
+          "fgPercentage": data.fgPercentage,
+          "threePercentage": data.threePercentage,
+          "stlPercentage": data.stlPercentage,
+          "blkPercentage": data.blkPercentage,
+          "per": data.per,
+          "offRating": data.offRating,
+          "defRating": data.defRating,
+          "wsPer40": data.wsPer40,
+          "bpm": data.bpm
+        }
+      }
+    }
+
+    const result = await collection.updateOne(filter, updateDoc);
+    console.log(
+      `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
+    );
+
   }
+
+  await client.close();
 
   await browser.close();
 })();
