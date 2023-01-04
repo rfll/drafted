@@ -6,43 +6,55 @@ const axios = require('axios');
 
 (async () => {
 
-  const db = JSON.stringify({
-    "collection": `${process.env.DB_COLLECTION}`,
-    "database": `${process.env.DB_NAME}`,
-    "dataSource": `${process.env.DB_CLUSTER}`
-  });
+  const uri = `${process.env.DB_URI}`;
 
-  const config = {
-    method: 'post',
-    url: `${process.env.DB_API_URL}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Headers': '*',
-      'api-key': `${process.env.DB_KEY}`,
-    },
-    data: db
-  };
+  const client = new MongoClient(uri);
 
-  const playerData = [];
-  const urls = [];
 
-  await axios(config)
-    .then(function (response) {
-      // console.log(JSON.stringify(response.data));
-      // console.log(response.data.document);
-      return response.data.document.players.forEach(element => urls.push(element.url));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // try {
+      const database = client.db("draftApp");
+      const collection = database.collection("playerData");
+      // create a filter for a movie to update
+      // const filter = { title: "Random Harvest" };
 
-  // console.log(urls);
+      // this option instructs the method to create a document if no documents match the filter
+      // const options = { upsert: true };
+
+      // create a document that sets the plot of the movie
+      // const updateDoc = {
+      //   $set: {
+      //     plot: `A harvest of random numbers, such as: ${Math.random()}`
+
+      //   },
+
+      const playerDataAll = await collection.findOne();
+      const playerData = playerDataAll.players;
+
+      console.log(playerData);
+
+      
+
+      // }
+
+      // const result = await movies.updateOne(filter, updateDoc, options);
+      // console.log(
+      //   `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
+      // );
+
+    // } 
+    // finally {
+      await client.close();
+
+    // }
+  // run().catch(console.dir);
+
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  for (let i = 0; i < urls.length; i++) {
-    const url = urls[i];
+  for (let i = 0; i < playerData.length; i++) {
+    const url = playerData[i].url;
+    
     await page.goto(`${url}`, { waitUntil: 'domcontentloaded' });
 
 
@@ -76,11 +88,6 @@ const axios = require('axios');
     })
 
     console.log(data);
-
-    await data.findOneAndUpdate(
-      {name: data.name},
-      { $push: data }
-    )
   }
 
   await browser.close();
