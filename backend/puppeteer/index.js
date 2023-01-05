@@ -31,33 +31,34 @@ const axios = require('axios');
     const [data] = await page.$$eval('#wrap', option => {
       return option.map(row => {
         return {
-          name: row.querySelector("#meta > div > h1 > span").textContent,
-          height: row.querySelector("#meta > div > p:nth-child(3) > span:nth-child(1)").textContent,
-          weight: row.querySelector("#meta > div > p:nth-child(3) > span:nth-child(2)").textContent,
-          team: row.querySelector("#meta > div > p:nth-child(7) > a").textContent,
-          gamesPlayed: row.querySelector(".right[data-stat='games']").textContent,
-          minutes: row.querySelector(".right[data-stat='mp_per_g']").textContent,
-          points: row.querySelector(".right[data-stat='pts_per_g']").textContent,
-          assists: row.querySelector(".right[data-stat='ast_per_g']").textContent,
-          rebounds: row.querySelector(".right[data-stat='trb_per_g']").textContent,
-          steals: row.querySelector(".right[data-stat='stl_per_g']").textContent,
-          blocks: row.querySelector(".right[data-stat='blk_per_g']").textContent,
-          turnovers: row.querySelector(".right[data-stat='tov_per_g']").textContent,
-          fouls: row.querySelector(".right[data-stat='pf_per_g']").textContent,
-          fgPercentage: row.querySelector(".right[data-stat='fg_pct']").textContent,
-          threePercentage: row.querySelector(".right[data-stat='fg3_pct']").textContent,
-          stlPercentage: row.querySelector(".right[data-stat='stl_pct']").textContent,
-          blkPercentage: row.querySelector(".right[data-stat='blk_pct']").textContent,
-          per: row.querySelector(".right[data-stat='per']").textContent,
-          offRating: row.querySelector(".right[data-stat='off_rtg']").textContent,
-          defRating: row.querySelector(".right[data-stat='def_rtg']").textContent,
-          wsPer40: row.querySelector(".right[data-stat='ws_per_40']").textContent,
-          bpm: row.querySelector(".right[data-stat='bpm']").textContent
+          name: row.querySelector("#meta > div > h1 > span")?.textContent,
+          height: row.querySelector("#meta > div > p:nth-child(3) > span:nth-child(1)")?.textContent,
+          weight: row.querySelector("#meta > div > p:nth-child(3) > span:nth-child(2)")?.textContent,
+          team: row.querySelector("#players_per_game\\.2023 > .left[data-stat='school_name'] > a")?.textContent,
+          gamesPlayed: row.querySelector("#players_per_game\\.2023 > .right[data-stat='games']")?.textContent,
+          minutes: row.querySelector("#players_per_game\\.2023 > .right[data-stat='mp_per_g']")?.textContent,
+          points: row.querySelector("#players_per_game\\.2023 > .right[data-stat='pts_per_g']")?.textContent,
+          assists: row.querySelector("#players_per_game\\.2023 > .right[data-stat='ast_per_g']")?.textContent,
+          rebounds: row.querySelector("#players_per_game\\.2023 > .right[data-stat='trb_per_g']")?.textContent,
+          steals: row.querySelector("#players_per_game\\.2023 > .right[data-stat='stl_per_g']")?.textContent,
+          blocks: row.querySelector("#players_per_game\\.2023 > .right[data-stat='blk_per_g']")?.textContent,
+          turnovers: row.querySelector("#players_per_game\\.2023 > .right[data-stat='tov_per_g']")?.textContent,
+          fouls: row.querySelector("#players_per_game\\.2023 > .right[data-stat='pf_per_g']")?.textContent,
+          fgPercentage: row.querySelector("#players_per_game\\.2023 > .right[data-stat='fg_pct']")?.textContent,
+          threePercentage: row.querySelector("#players_per_game\\.2023 > .right[data-stat='fg3_pct']")?.textContent,
+          stlPercentage: row.querySelector("#players_advanced\\.2023 > .right[data-stat='stl_pct']")?.textContent,
+          blkPercentage: row.querySelector("#players_advanced\\.2023 > .right[data-stat='blk_pct']")?.textContent,
+          per: row.querySelector("#players_advanced\\.2023 > .right[data-stat='per']")?.textContent,
+          offRating: row.querySelector("#players_per_poss\\.2023 > .right[data-stat='off_rtg']")?.textContent,
+          defRating: row.querySelector("#players_per_poss\\.2023 > .right[data-stat='def_rtg']")?.textContent,
+          wsPer40: row.querySelector("#players_advanced\\.2023 > .right[data-stat='ws_per_40']")?.textContent,
+          bpm: row.querySelector("#players_advanced\\.2023 > .right[data-stat='bpm']")?.textContent
         }
       })
     })
 
-    // console.log(data.name);
+    // console.log(data.name); #meta > div:nth-child(2) > p:nth-child(6) > a
+    // #players_totals\.2023 > td:nth-child(2) > a  #players_per_game\.2023 > td:nth-child(2) > a
 
     const filter = { "players.name" : data.name };
     const updateDoc = {
