@@ -57,8 +57,8 @@ const axios = require('axios');
       })
     })
 
-    // console.log(data.name); #meta > div:nth-child(2) > p:nth-child(6) > a
-    // #players_totals\.2023 > td:nth-child(2) > a  #players_per_game\.2023 > td:nth-child(2) > a
+    // console.log(data.name);
+    
 
     const filter = { "players.name" : data.name };
     const updateDoc = {
@@ -93,7 +93,7 @@ const axios = require('axios');
 
     const result = await collection.updateOne(filter, updateDoc);
     console.log(
-      `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
+      `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s) for ${data.name}`,
     );
 
   }
