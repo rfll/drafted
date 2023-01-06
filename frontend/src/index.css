@@ -1,6 +1,6 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -12,13 +12,13 @@ body {
   align-items: center;
 }
 
-main {
+/* main {
   position: absolute;
-}
+} */
 
-input {
+/* input {
   margin: 0;
-}
+} */
 
 input:focus {
   outline: none;
@@ -47,29 +47,29 @@ input[type="text"]:focus {
   color: #201f2f;
 }
 
-label {
+/* label {
   display: inline-block;
-}
+} */
 
-header,
+/* header,
 section {
   margin-bottom: 2rem;
   min-width: 54rem;
   max-width: 54rem;
-}
+} */
 
-.logo {
+/* .logo {
   display: flex;
   justify-content: center;
-}
+} */
 
-.selected-players {
+/* .selected-players {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   margin-top: 100px;
-}
+} */
 
 .draft-position {
   font-weight: 700;
@@ -100,10 +100,10 @@ section {
   /* background: #201f2f; */
   /* background-color: hsl(35, 95%, 84%); */
   overflow: hidden;
-  /* border-bottom: solid gray 1px; */
-  box-shadow: 1px 1px 8px darkgray;
+  border-bottom: solid gray 1px;
+  /* box-shadow: 1px 1px 8px darkgray; */
   transition: all .2s ease-out;
-  top: auto !important;
+  /* top: auto !important; */
   left: auto !important;
 }
 
@@ -183,83 +183,4 @@ section {
 
 .player-team {
   font-size: 1.2rem;
-}
-
-@keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.spinner {
-  animation: rotate 1s linear infinite;
-  height: 2rem;
-  margin-left: 1rem;
-}
-
-.error {
-  background-color: rgb(182, 21, 64);
-  padding: 1rem;
-  font-weight: 700;
-  color: #f1f2f6;
-  font-size: 1.5rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.error__close {
-  width: 2rem;
-  height: 2rem;
-}
-
-.filters {
-  color: #f1f2f6;
-}
-
-.filters__form {
-  display: flex;
-  justify-content: space-around;
-}
-
-.filters__form-group {
-  display: flex;
-  align-items: center;
-}
-
-.filters__checkbox {
-  /* -webkit-appearance: none; */
-  background-size: 50% 50%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  width: 2rem;
-  height: 2rem;
-  border: 2px solid #fff;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  opacity: 0.3;
-  margin-right: 1rem;
-}
-
-.filters__checkbox:checked {
-  opacity: 1;
-}
-
-.filters__checkbox:hover {
-  cursor: pointer;
-}
-
-.filters__label {
-  font-size: 1.2rem;
-  font-weight: 300;
-}
-
-.filters__checkbox~.filters__label {
-  opacity: 0.3;
-}
-
-.filters__checkbox:checked~.filters__label {
-  opacity: 1;
 }
