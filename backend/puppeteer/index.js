@@ -24,6 +24,7 @@ const axios = require('axios');
 
   for (let i = 0; i < playerData.length; i++) {
     const url = playerData[i].url;
+    const img = playerData[i].img;
 
     await page.goto(`${url}`, { waitUntil: 'domcontentloaded' });
 
@@ -66,6 +67,7 @@ const axios = require('axios');
         "players.$" : {
           "name": data.name,
           "url": url,
+          "img": img,
           "height": data.height,
           "weight": data.weight,
           "team": data.team,
