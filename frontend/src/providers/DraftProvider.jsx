@@ -1,9 +1,7 @@
 import { createContext, useState, useEffect } from "react";
-// import fakeData from "../data/fakeDataArray";
+import axios from 'axios';
 import fakeDataObject from "../data/fakeDataObject";
 import useDebounce from "../hooks/useDebounce";
-import storeData from "../data/storeData";
-import storeDataObject from "../data/storeDataObject";
 
 export const draftContext = createContext();
 
@@ -20,7 +18,7 @@ export default function DraftProvider(props) {
   const [index, setIndex] = useState(0);
 
   // This is state
-  const debounceTerm = useDebounce(searchTerm, 400);
+  const debounceTerm = useDebounce(searchTerm, 200);
 
   // const dndDraftPosition = selectedPlayer.map(positionId => selectedPlayer[positionId]);
   // console.log(dndDraftPosition)
@@ -48,11 +46,19 @@ export default function DraftProvider(props) {
       return setSearchResults([])
     }
 
-    function loadData() {
-      return setSearchResults([...fakeDataObject.players.filter((c) => c.name.toLowerCase().includes(debounceTerm.toLowerCase()))]);
-    }
+    // function loadData() {
+    //   return setSearchResults([...fakeDataObject.players.filter((c) => c.name.toLowerCase().includes(debounceTerm.toLowerCase()))]);
+    // }
 
-    loadData();
+    // loadData();
+
+    axios.get('/db/players').then(response => {
+
+      const players = response.data;
+
+      // console.log(response);
+      setSearchResults([...players.filter((c) => c.name.toLowerCase().includes(debounceTerm.toLowerCase()))])
+    })
 
   }, [debounceTerm]);
 
