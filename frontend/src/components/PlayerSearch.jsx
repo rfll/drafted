@@ -19,7 +19,7 @@ export default function PlayerSearch(props) {
             <div className='selected-player-name'>{props.name}</div>
             <div className='selected-player-team'>{props.team}</div>
           </div>
-          <img className='selected-player-image' src={props.image} alt='draftee'></img>
+          <img className='selected-player-image' src={props.img} alt='draftee'></img>
         </div>
       )}
     </Draggable>
