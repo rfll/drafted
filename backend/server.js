@@ -4,50 +4,35 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const dotenv = require('dotenv').config();
 const axios = require('axios');
 
-app.use(express.static('../frontend'));
 app.listen(8080, console.log('Port 8080'));
 
+// let playerData = [];
 
-// async function listDatabases(client){
-//   databasesList = await client.db().admin().listDatabases();
+// app.get('/db/players', (req, res) => {
 
-//   console.log("Databases:");
-//   databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-// };
+(async () => {
 
-// (async() => {
+  const uri = `${process.env.DB_URI}`;
 
-//   const uri = `${process.env.DB_URI}`;
-//   const client = new MongoClient(uri);
-//   await client.connect();
-//   await listDatabases(client);
-//   await client.close();
+  const client = new MongoClient(uri);
 
-// })();
+  const database = client.db("draftApp");
+  const collection = database.collection("playerData");
 
-const data = JSON.stringify({
-    "collection": `${process.env.DB_COLLECTION}`,
-    "database": `${process.env.DB_NAME}`,
-    "dataSource": `${process.env.DB_CLUSTER}`
-});
-            
-const config = {
-    method: 'post',
-    url: `${process.env.DB_API_URL}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Headers': '*',
-      'api-key': `${process.env.DB_KEY}`,
-    },
-    data: data
-};
-            
-axios(config)
-    .then(function (response) {
-        // console.log(JSON.stringify(response.data));
-        console.log(response.data.document);
-        return response.data.document;
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+  const playerDataAll = await collection.findOne();
+  const playerData = playerDataAll.players;
+
+  await client.close()
+
+
+  app.get('/db/players', (req, res) => {
+
+    res.send(playerData);
+  })
+
+})()
+
+// app.get('/db/players', (req, res) => {
+
+//   res.send(playerData);
+// })
