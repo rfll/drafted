@@ -29,7 +29,7 @@ export default function DraftForm(props) {
       {(provided) => {
         return (
           <div className='selected-players' ref={provided.innerRef} {...provided.droppableProps}>
-            {provided.placeholder}
+            {/* {provided.placeholder} */}
             {selectedPlayer.map((player, index) => {
 
               return (
