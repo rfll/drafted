@@ -1,5 +1,4 @@
 // import fakeData from './data/fakeDataArray';
-import './App.css';
 import LiveSearch from './components/LiveSearch';
 import DraftForm from './components/DraftForm';
 // import storeData from './data/storeData';
@@ -17,9 +16,7 @@ function App() {
       <div>
       <div>Mocks</div>
         <LiveSearch />
-        {/* <div className='selected-players'> */}
           <DraftForm />
-        {/* </div> */}
     </div>
     </DragDropContext>
   );
