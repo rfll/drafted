@@ -77,6 +77,28 @@ section {
   margin-right: 5px;
 }
 
+.selected-player-empty {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-items: center; */
+  color: #201f2f;
+  width: 100%;
+  height: 70px;
+  /* padding-left: 1rem; */
+  /* border-radius: 0.5em; */
+  /* border-top-right-radius: 0.5rem; */
+  /* border-bottom-right-radius: 0.5rem; */
+  /* background-color: hsl(35, 95%, 84%); */
+  overflow: hidden;
+  border-bottom: solid gray 1px;
+  border-radius: 15px;
+  /* box-shadow: 1px 1px 8px darkgray; */
+  /* transition: all .2s ease-out; */
+  /* top: auto !important; */
+  /* left: auto !important; */
+}
+
 .selected-player-image {
   width: 120px;
   height: 80px;
@@ -97,7 +119,7 @@ section {
   /* border-radius: 0.5em; */
   /* border-top-right-radius: 0.5rem; */
   /* border-bottom-right-radius: 0.5rem; */
-  /* background-color: hsl(35, 95%, 84%); */
+  background-color: hsl(35, 95%, 84%);
   overflow: hidden;
   border-bottom: solid gray 1px;
   border-radius: 15px;

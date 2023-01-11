@@ -9,7 +9,7 @@ export default function PlayerSearchEmpty(props) {
     <Draggable draggableId={props.index.toString()} index={props.index} key={props.index}>
       {(provided) => (
     <div 
-    className='selected-player-info' 
+    className='selected-player-empty' 
     key={props.position}
     onClick={e => clickDraftSlot(e.target, props)}
     {...provided.draggableProps}
