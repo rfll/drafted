@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { draftContext } from "../providers/DraftProvider";
 
 export default function SearchBar(props) {
-  const { searchTerm, setSearchTerm } = useContext(draftContext);
+  const { searchTerm, setSearchTerm, index } = useContext(draftContext);
 
   return (
     <section className="search">
@@ -10,7 +10,7 @@ export default function SearchBar(props) {
         <input
           className="radius"
           spellCheck="false"
-          placeholder="Search Players"
+          placeholder={`Pick ${index + 1}`}
           name="search"
           type="text"
           value={searchTerm}
