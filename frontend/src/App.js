@@ -11,13 +11,13 @@ function App() {
   const { onDragEnd } = useContext(draftContext);
 
   return (
-    <DragDropContext 
-    onDragEnd={onDragEnd}>
-      <div>
-      <div>Mocks</div>
+    <DragDropContext
+      onDragEnd={onDragEnd}>
+      <div className='parent-container'>
+        <div>Mocks</div>
         <LiveSearch />
-          <DraftForm />
-    </div>
+        <DraftForm />
+      </div>
     </DragDropContext>
   );
 }
