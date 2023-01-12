@@ -49,7 +49,7 @@ const fakeDataObject = {
       'image': 'https://duckswire.usatoday.com/wp-content/uploads/sites/101/2022/05/1391315988.jpg?w=1024&h=576&crop=1'
     }
   ],
-  'position': [{}, {}, {}, {}, {}]
+  'position': [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
 };
 
 export default fakeDataObject;
