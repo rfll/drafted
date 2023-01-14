@@ -1,6 +1,6 @@
-/* * {
+* {
   box-sizing: border-box;
-} */
+}
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -69,12 +69,14 @@ section {
   /* grid-column-gap: 10px; */
   grid-row-gap: 10px;
   margin-top: 10px;
+  /* width: auto; */
 }
 
 .draft-position {
   font-weight: 700;
   font-size: xx-large;
-  margin-right: 5px;
+  /* margin-right: 5px; */
+  /* margin-left: 5px; */
 }
 
 .selected-player-empty {
@@ -97,13 +99,18 @@ section {
   /* transition: all .2s ease-out; */
   /* top: auto !important; */
   /* left: auto !important; */
-  width: auto;
+}
+
+.selected-player-empty:hover {
+  /* transform: scale(1.01); */
+  /* transition: all .2s ease-in; */
+  cursor: grab;
 }
 
 .selected-player-image {
-  width: 120px;
+  width: 100px;
   height: 80px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -111,8 +118,8 @@ section {
 .selected-player-info {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  /* align-items: center; */
+  justify-content: space-around;
+  align-items: center;
   color: #201f2f;
   /* width: 100%; */
   height: 70px;
@@ -128,7 +135,7 @@ section {
   /* transition: all .2s ease-out; */
   /* top: auto !important; */
   /* left: auto !important; */
-  width: auto;
+  /* width: auto; */
 }
 
 .selected-player-info:hover {
@@ -137,9 +144,10 @@ section {
   cursor: grab;
 }
 
-.selected-player-text {
-  width: 240px;
-}
+/* .selected-player-text { */
+  /* width: 240px; */
+  /* align-self: center; */
+/* } */
 
 .selected-player-name {
   font-weight: 700;
@@ -152,7 +160,6 @@ section {
 
 .radius {
   border-radius: 15px;
-  width: auto;
   position: relative;
 }
 
@@ -174,7 +181,8 @@ section {
   display: flex;
   color: #fefefe;
   margin-bottom: 0.5rem;
-  /* border-radius: 15px; */
+  background-color: blanchedalmond;
+  border-radius: 15px;
   /* transition: all .2s ease-out; */
 }
 
@@ -192,15 +200,13 @@ section {
 
 .player-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   color: #201f2f;
-  width: 100%;
+  /* width: 100%; */
   padding-left: 1rem;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: #201f2f;
-  background-color: hsl(35, 95%, 84%);
+  /* border-top-right-radius: 15px; */
+  /* border-bottom-right-radius: 15px; */
   overflow: hidden;
 }
 
@@ -213,5 +219,5 @@ section {
 }
 
 .parent-container {
-  max-width: 100%;
+  width: auto;
 }
