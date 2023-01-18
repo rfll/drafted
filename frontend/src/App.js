@@ -13,11 +13,11 @@ function App() {
   return (
     <DragDropContext
       onDragEnd={onDragEnd}>
-      <div className='parent-container'>
-        <div>Mocks</div>
+      {/* <div className='parent-container'> */}
+        {/* <div>Mocks</div> */}
         <LiveSearch />
         <DraftForm />
-      </div>
+      {/* </div> */}
     </DragDropContext>
   );
 }
