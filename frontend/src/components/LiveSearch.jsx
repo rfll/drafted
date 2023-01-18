@@ -10,12 +10,12 @@ export default function LiveSearch(props) {
       <header className="logo">
         {/* <img src="images/brand.png" alt="Brand" /> */}
       </header>
-      <main>
+      <div className="search-components">
         <SearchBar />
         <SearchResults
           // storeData={storeData}
         />
-      </main>
+      </div>
     </Fragment>
   );
 }
