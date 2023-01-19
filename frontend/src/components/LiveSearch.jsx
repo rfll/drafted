@@ -12,9 +12,7 @@ export default function LiveSearch(props) {
       </header>
       <div className="search-components">
         <SearchBar />
-        <SearchResults
-          // storeData={storeData}
-        />
+        <SearchResults />
       </div>
     </Fragment>
   );
