@@ -9,7 +9,6 @@ export const draftContext = createContext();
 export default function DraftProvider(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  // const [selectedPlayer, setSelectedPlayer] = useState(storeDataObject);
   const [selectedPlayer, setSelectedPlayer] = useState(fakeDataObject.position);
   const [updatedPlayer, setUpdatedPlayer] = useState();
   const [draftPosition, setDraftPosition] = useState({
@@ -20,9 +19,7 @@ export default function DraftProvider(props) {
   // This is state
   const debounceTerm = useDebounce(searchTerm, 200);
 
-  // const dndDraftPosition = selectedPlayer.map(positionId => selectedPlayer[positionId]);
-  // console.log(dndDraftPosition)
-
+  // React Beautiful DnD
   const onDragEnd = result => {
     const { source, destination } = result;
 
@@ -42,21 +39,14 @@ export default function DraftProvider(props) {
   }
 
   useEffect(() => {
-    if (!debounceTerm) {
-      return setSearchResults([])
-    }
-
-    // function loadData() {
-    //   return setSearchResults([...fakeDataObject.players.filter((c) => c.name.toLowerCase().includes(debounceTerm.toLowerCase()))]);
+    // if (!debounceTerm) {
+    //   return setSearchResults([])
     // }
-
-    // loadData();
 
     axios.get('/db/players').then(response => {
 
       const players = response.data;
 
-      // console.log(response);
       setSearchResults([...players.filter((c) => c.name.toLowerCase().includes(debounceTerm.toLowerCase()))])
     })
 
@@ -65,12 +55,19 @@ export default function DraftProvider(props) {
 
   function onClick(e, player) {
 
+    const newIndex = searchResults.findIndex(element => element.name === player.name)
+
+    // console.log(searchResults.indexOf(player.name))
+    // console.log(player)
+    console.log(newIndex)
+
     selectedPlayer.splice(index, 1, player);
+    searchResults.splice(newIndex, 1)
     setIndex(index + 1)
 
     // console.log(fakeDataObject.position)
     setSearchTerm("");
-    setSearchResults([]);
+    // setSearchResults([]);
   }
 
   function clickDraftSlot(e, player) {
