@@ -7,7 +7,7 @@ import PlayerSearchEmpty from './PlayerSearchEmpty';
 import { Droppable } from 'react-beautiful-dnd';
 
 export default function DraftForm(props) {
-  const { selectedPlayer } = useContext(draftContext);
+  const { selectedPlayer, index, clickDraftSlot } = useContext(draftContext);
 
   const [enabled, setEnabled] = useState(false);
 
@@ -30,17 +30,18 @@ export default function DraftForm(props) {
         return (
           <div className='selected-players' ref={provided.innerRef} {...provided.droppableProps}>
             {/* {provided.placeholder} */}
-            {selectedPlayer.map((player, index) => {
+            {selectedPlayer.map((player, playerIndex) => {
 
               return (
                 <div className='draft-position-container' >
                   {!player.name
                     ? <PlayerSearchEmpty
-                      position={index + 1}
-                      index={index} />
+                      position={playerIndex + 1}
+                      index={playerIndex}
+                      />
                     : <PlayerSearch
-                      position={index + 1}
-                      index={index}
+                      position={playerIndex + 1}
+                      index={playerIndex}
                       {...player}
                     />}
                 </div>
