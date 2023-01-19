@@ -5,8 +5,8 @@ export default function SearchBar(props) {
   const { searchTerm, setSearchTerm, index } = useContext(draftContext);
 
   return (
-    <section className="search">
-      <form className="search__form" onSubmit={event => event.preventDefault()}>
+    // <section className="search">
+      <form className="search_form" onSubmit={event => event.preventDefault()}>
         <input
           className="radius"
           spellCheck="false"
@@ -17,6 +17,6 @@ export default function SearchBar(props) {
           onChange={event => setSearchTerm(event.target.value)}
         />
       </form>
-    </section>
+    // {/* </section> */}
   );
 }
