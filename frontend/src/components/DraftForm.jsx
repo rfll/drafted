@@ -7,7 +7,7 @@ import PlayerSearchEmpty from './PlayerSearchEmpty';
 import { Droppable } from 'react-beautiful-dnd';
 
 export default function DraftForm(props) {
-  const { selectedPlayer, updatedPlayer, setIndex } = useContext(draftContext);
+  const { selectedPlayer } = useContext(draftContext);
 
   const [enabled, setEnabled] = useState(false);
 
