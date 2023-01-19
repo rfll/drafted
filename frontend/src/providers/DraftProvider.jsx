@@ -15,6 +15,7 @@ export default function DraftProvider(props) {
     ...selectedPlayer
   });
   const [index, setIndex] = useState(0);
+  const [clickedItem, setClickedItem] = useState(index);
 
   // This is state
   const debounceTerm = useDebounce(searchTerm, 200);
@@ -57,23 +58,20 @@ export default function DraftProvider(props) {
 
     const newIndex = searchResults.findIndex(element => element.name === player.name)
 
-    // console.log(searchResults.indexOf(player.name))
-    // console.log(player)
-    console.log(newIndex)
-
     selectedPlayer.splice(index, 1, player);
     searchResults.splice(newIndex, 1)
     setIndex(index + 1)
 
-    // console.log(fakeDataObject.position)
     setSearchTerm("");
     // setSearchResults([]);
   }
 
   function clickDraftSlot(e, player) {
     setIndex(player.index);
-  }
 
+    // setUpdatedPlayer(e.target.classList.toggle('clicked'))
+    console.log(player);
+  }
 
   const draftData = {
     searchTerm, setSearchTerm,
@@ -84,7 +82,8 @@ export default function DraftProvider(props) {
     onClick,
     clickDraftSlot,
     onDragEnd,
-    index, setIndex
+    index, setIndex,
+    clickedItem, setClickedItem
   }
 
   return (
