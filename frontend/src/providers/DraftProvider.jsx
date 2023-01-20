@@ -10,7 +10,6 @@ export default function DraftProvider(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [selectedPlayer, setSelectedPlayer] = useState(fakeDataObject.position);
-  const [updatedPlayer, setUpdatedPlayer] = useState();
   const [draftPosition, setDraftPosition] = useState({
     ...selectedPlayer
   });
@@ -68,16 +67,12 @@ export default function DraftProvider(props) {
 
   function clickDraftSlot(e, player) {
     setIndex(player.index);
-
-    // setUpdatedPlayer(e.target.classList.toggle('clicked'))
-    console.log(player);
   }
 
   const draftData = {
     searchTerm, setSearchTerm,
     searchResults, setSearchResults,
     selectedPlayer, setSelectedPlayer,
-    updatedPlayer, setUpdatedPlayer,
     draftPosition, setDraftPosition,
     onClick,
     clickDraftSlot,
