@@ -13,7 +13,7 @@ function App() {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
        <header className="logo">
-        hoopScout
+        Mocks
       </header>
       <div className="parent-container">
         <LiveSearch />

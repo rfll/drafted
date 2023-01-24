@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { draftContext } from '../providers/DraftProvider';
-import './PlayerForm.scss';
 
 export default function PlayerForm(props) {
   const { onClick } = useContext(draftContext);
