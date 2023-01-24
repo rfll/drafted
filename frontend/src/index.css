@@ -93,6 +93,7 @@ input[type="text"]:focus {
   font-size: xx-large;
   /* margin-right: 5px; */
   /* margin-left: 5px; */
+  padding-left: 20px;
 }
 
 .selected-player-empty {
@@ -133,7 +134,7 @@ input[type="text"]:focus {
 .selected-player-info {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #201f2f;
   height: 70px;
