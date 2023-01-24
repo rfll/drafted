@@ -4,9 +4,7 @@
 
 body {
   font-family: "Source Sans Pro", sans-serif;
-  /* background-color: #181725; */
-  color: #fefefe;
-  padding: 2rem;
+  background-color: #eff0f3;
   display: flex;
   /* flex-direction: column; */
   justify-content: center;
@@ -15,6 +13,18 @@ body {
 }
 
 #root {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  color: #d95b00;
+  align-self: center;
+  font-size: xx-large;
+  font-weight: 900;
+}
+
+.parent-container {
   display: flex;
   flex-direction: row;
 }
@@ -59,13 +69,16 @@ input[type="text"]:focus {
   /* grid-column-gap: 10px; */
   grid-row-gap: 10px;
   /* margin-top: 10px; */
-  padding: 50px;
+  padding: 20px;
+  margin: 10px;
+  background-color: #fffffe;
+  border-radius: 15px;
 }
 
 .selected-player-clicked {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #201f2f;
   height: 70px;
@@ -74,9 +87,9 @@ input[type="text"]:focus {
   /* border-top-right-radius: 0.5rem; */
   /* border-bottom-right-radius: 0.5rem; */
   /* background-color: hsl(35, 95%, 84%); */
-  background-color: lightgray;
+  background-color: #ff9950;
   overflow: hidden;
-  border: solid gray 1px;
+  /* border: solid #d95b00 2px; */
   border-radius: 15px;
   /* box-shadow: 1px 1px 8px darkgray; */
   /* transition: all .2s ease-out; */
@@ -99,9 +112,9 @@ input[type="text"]:focus {
 .selected-player-empty {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  color: #201f2f;
+  color: gray;
   height: 70px;
   /* padding-left: 1rem; */
   /* border-radius: 0.5em; */
@@ -121,6 +134,7 @@ input[type="text"]:focus {
   /* transform: scale(1.01); */
   /* transition: all .2s ease-in; */
   cursor: grab;
+  background-color: #eff0f3;
 }
 
 .selected-player-image {
@@ -142,9 +156,9 @@ input[type="text"]:focus {
   /* border-radius: 0.5em; */
   /* border-top-right-radius: 0.5rem; */
   /* border-bottom-right-radius: 0.5rem; */
-  background-color: hsl(35, 95%, 84%);
+  background-color: #ffd2b2;
   overflow: hidden;
-  border: solid gray 1px;
+  /* border: solid gray 1px; */
   border-radius: 15px;
   /* box-shadow: 1px 1px 8px darkgray; */
   /* transition: all .2s ease-out; */
@@ -155,7 +169,7 @@ input[type="text"]:focus {
 .selected-player-info-clicked {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #201f2f;
   height: 70px;
@@ -163,9 +177,9 @@ input[type="text"]:focus {
   /* border-radius: 0.5em; */
   /* border-top-right-radius: 0.5rem; */
   /* border-bottom-right-radius: 0.5rem; */
-  background-color: lightgray;
+  background-color: #ff9950;
   overflow: hidden;
-  border: solid gray 1px;
+  /* border: solid gray 1px; */
   border-radius: 15px;
   /* box-shadow: 1px 1px 8px darkgray; */
   /* transition: all .2s ease-out; */
@@ -193,11 +207,14 @@ input[type="text"]:focus {
 }
 
 .search-components {
-  padding: 50px;
+  padding: 20px;
+  background-color: #fffffe;
+  border-radius: 15px;
+  margin: 10px;
 }
 
 .radius {
-  border-radius: 15px;
+  border-radius: 10px;
   position: relative;
 }
 
@@ -205,7 +222,7 @@ input[type="text"]:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 20px;
 }
 
 /* .search__form {
@@ -216,20 +233,17 @@ input[type="text"]:focus {
 
 .draft-results {
   display: flex;
-  color: #fefefe;
   margin-bottom: 0.5rem;
-  background-color: whitesmoke;
+  color: #eff0f3;
   border-radius: 15px;
-  cursor: copy;
   height: 70px;
-  border: solid gray 1px;
-  /* transition: all .2s ease-out; */
+  border: solid #eff0f3 2px;
 }
 
-/* .draft-results:hover {
-  transform: scale(1.01);
-  transition: all .2s ease-in;
-} */
+.draft-results:hover {
+  cursor: pointer;
+  background-color: #eff0f3;
+}
 
 .player-image {
   width: 80px;
@@ -256,9 +270,3 @@ input[type="text"]:focus {
 .player-team {
   font-size: 1.2rem;
 }
-
-/* .parent-container {
-  width: auto;
-  display: flex;
-  flex-direction: row;
-} */
