@@ -10,7 +10,7 @@ export default function SearchBar(props) {
         <input
           className="radius"
           spellCheck="false"
-          placeholder={`Pick ${index + 1}`}
+          placeholder={`Search Players (${index + 1})`}
           name="search"
           type="text"
           value={searchTerm}
