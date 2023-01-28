@@ -38,7 +38,7 @@ header {
 
 input {
   width: 350px;
-  height: 70px;
+  // height: 70px;
   border-radius: 10px;
 }
 
@@ -58,9 +58,6 @@ input[type="text"] {
   font-weight: 700;
   font-size: 1.5rem;
   text-align: left;
-  /* background-repeat: no-repeat; */
-  /* background-size: auto 50%; */
-  /* background-position: 1rem 50%; */
 }
 
 input[type="text"]:focus {
@@ -135,28 +132,30 @@ input[type="text"]:focus {
 
 .selected-player-info {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  // justify-content: space-between;
+  // align-items: center;
   color: #201f2f;
   height: 70px;
   background-color: var(--primary-color-dull);
   overflow: hidden;
   /* border: solid gray 1px; */
   border-radius: 10px;
+  transition: all .3s ease;
 }
 
 .selected-player-info-clicked {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  // justify-content: space-between;
+  // align-items: center;
   color: #201f2f;
-  height: 70px;
+  height: 160px;
   background-color: var(--primary-color-dull-clicked);
   overflow: hidden;
   /* border: solid gray 1px; */
   border-radius: 10px;
+  transition: all .3s ease;
 }
 
 .selected-player-info:hover {
@@ -195,6 +194,7 @@ input[type="text"]:focus {
   height: 70px;
   width: 350px;
   border: solid var(--background-color) 2px;
+  margin-top: 10px;
 }
 
 .draft-results:hover {
@@ -237,4 +237,11 @@ input[type="text"]:focus {
   left: 286px;
   stroke: var(--tertiary-color);
   stroke-width: 3;
+}
+
+.selected-player-info-top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
