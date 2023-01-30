@@ -150,7 +150,7 @@ input[type="text"]:focus {
   // justify-content: space-between;
   // align-items: center;
   color: #201f2f;
-  height: 160px;
+  height: 300px;
   background-color: var(--primary-color-dull-clicked);
   overflow: hidden;
   /* border: solid gray 1px; */
@@ -183,7 +183,7 @@ input[type="text"]:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-bottom: 0.5rem; */
+  position: relative;
 }
 
 .draft-results {
@@ -234,7 +234,7 @@ input[type="text"]:focus {
 
 .search-icon {
   position: absolute;
-  left: 286px;
+  left: 11px;
   stroke: var(--tertiary-color);
   stroke-width: 3;
 }
@@ -244,4 +244,17 @@ input[type="text"]:focus {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+table {
+  width: auto;
+  text-align: center;
+}
+
+th {
+  width: 50px;
+}
+
+td {
+  width: 50px;
 }
