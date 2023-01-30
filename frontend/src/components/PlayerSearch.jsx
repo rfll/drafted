@@ -41,30 +41,48 @@ export default function PlayerSearch(props) {
           {index === props.index && (
             <table className="selected-player-info-stats">
               <tr>
-                <th>Games Played</th>
-                <th>Points</th>
-                <th>Assists</th>
-                <th>Rebounds</th>
-                <th>Steals</th>
-                <th>Blocks</th>
+                <th>HT</th>
+                <th>WT</th>
               </tr>
               <tr>
-                <th>{props.gamesPlayed}</th>
-                <th>{props.pointsPerGame}</th>
-                <th>{props.assistsPerGame}</th>
-                <th>{props.reboundsPerGame}</th>
-                <th>{props.stealPerGame}</th>
-                <th>{props.blocksPerGame}</th>
+                <td>{props.height}</td>
+                <td>{props.weight}</td>
+              </tr>
+              <tr>
+                <th>GP</th>
+                <th>MPG</th>
+                <th>PPG</th>
+                <th>APG</th>
+                <th>RPG</th>
+                <th>SPG</th>
+                <th>BPG</th>
+              </tr>
+              <tr>
+                <td>{props.gamesPlayed}</td>
+                <td>{props.minutesPerGame}</td>
+                <td>{props.pointsPerGame}</td>
+                <td>{props.assistsPerGame}</td>
+                <td>{props.reboundsPerGame}</td>
+                <td>{props.stealPerGame}</td>
+                <td>{props.blocksPerGame}</td>
+              </tr>
+              <tr>
+                <th>FG%</th>
+                <th>3P%</th>
+              </tr>
+              <tr>
+                <td>{props.fgPercentage}</td>
+                <td>{props.threePercentage}</td>
               </tr>
               <tr>
                 <th>BPM</th>
-                <th>Steal %</th>
-                <th>Block %</th>
+                <th>Stl%</th>
+                <th>Blk%</th>
               </tr>
               <tr>
-                <th>{props.bpm}</th>
-                <th>{props.stlPercentage}</th>
-                <th>{props.blkPercentage}</th>
+                <td>{props.bpm}</td>
+                <td>{props.stlPercentage}</td>
+                <td>{props.blkPercentage}</td>
               </tr>
             </table>
           )}
