@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
 import { draftContext } from '../providers/DraftProvider';
-import storeData from '../data/storeData';
 import PlayerSearch from './PlayerSearch';
 import PlayerSearchEmpty from './PlayerSearchEmpty';
 import { Droppable } from 'react-beautiful-dnd';
