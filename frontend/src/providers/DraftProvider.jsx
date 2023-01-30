@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from 'axios';
-import fakeDataObject from "../data/fakeDataObject";
+import draftPositionData from "../data/draftPositionData";
 import useDebounce from "../hooks/useDebounce";
 
 export const draftContext = createContext();
@@ -9,7 +9,7 @@ export const draftContext = createContext();
 export default function DraftProvider(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedPlayer, setSelectedPlayer] = useState(fakeDataObject.position);
+  const [selectedPlayer, setSelectedPlayer] = useState(draftPositionData.position);
   const [draftPosition, setDraftPosition] = useState({
     ...selectedPlayer
   });
