@@ -23,15 +23,14 @@ export default function DraftForm(props) {
   }
 
   return (
-    <Droppable droppableId='draft-order' >
+    <Droppable droppableId='draft-order'>
       {(provided) => {
         return (
           <div className='selected-players' ref={provided.innerRef} {...provided.droppableProps}>
-            {/* {provided.placeholder} */}
             {selectedPlayer.map((player, playerIndex) => {
 
               return (
-                <div className='draft-position-container' >
+                <div className='draft-position-container' key={playerIndex}>
                   {!player.name
                     ? <PlayerSearchEmpty
                       position={playerIndex + 1}
@@ -46,6 +45,7 @@ export default function DraftForm(props) {
               )
             })
             }
+            {provided.placeholder}
           </div>)
       }}
     </Droppable>
