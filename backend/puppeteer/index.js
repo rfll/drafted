@@ -11,22 +11,23 @@ const axios = require('axios');
   const client = new MongoClient(uri);
 
   const database = client.db("draftApp");
-  const collection = database.collection("playerData");
-
-  const playerDataAll = await collection.findOne();
-  const playerData = playerDataAll.players;
-
-  // console.log(playerData);
+  const collection = database.collection("players");
+  const playerData = await collection.find().toArray();
+  // const playerData = players.reverse();
 
 
   const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+  // const page = await browser.newPage();
+  const page = (await browser.pages())[0];
 
   for (let i = 0; i < playerData.length; i++) {
     const url = playerData[i].url;
     const img = playerData[i].img;
+    const lastName = playerData[i].lastName;
+    const name = playerData[i].name;
 
     await page.goto(`${url}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 1000);
 
 
     const [data] = await page.$$eval('#wrap', option => {
@@ -58,14 +59,11 @@ const axios = require('axios');
       })
     })
 
-    // console.log(data.name);
-    
-
-    const filter = { "players.name" : data.name };
+    const filter = { "name" : name };
     const updateDoc = {
       $set: {
-        "players.$" : {
-          "name": data.name,
+          "name": name,
+          "lastName": lastName,
           "url": url,
           "img": img,
           "height": data.height,
@@ -89,15 +87,16 @@ const axios = require('axios');
           "defRating": data.defRating,
           "wsPer40": data.wsPer40,
           "bpm": data.bpm
-        }
       }
     }
 
     const result = await collection.updateOne(filter, updateDoc);
+
     console.log(
       `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s) for ${data.name}`,
     );
 
+    // console.log(`A document was inserted with the _id: ${result.insertedId}`)
   }
 
   await client.close();
