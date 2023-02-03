@@ -17,17 +17,16 @@ app.listen(8080, console.log('Port 8080'));
   const client = new MongoClient(uri);
 
   const database = client.db("draftApp");
-  const collection = database.collection("playerData");
+  const collection = database.collection("players");
 
-  const playerDataAll = await collection.findOne();
-  const playerData = playerDataAll.players;
+  const playerDataAll = await collection.find().sort({'lastName': 1}).toArray();
 
   await client.close()
 
 
   app.get('/db/players', (req, res) => {
 
-    res.send(playerData);
+    res.send(playerDataAll);
   })
 
 })()
