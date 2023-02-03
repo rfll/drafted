@@ -5,7 +5,7 @@ import { Draggable } from "react-beautiful-dnd";
 export default function PlayerSearch(props) {
   const { clickDraftSlot, index } = useContext(draftContext);
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <Draggable
@@ -40,50 +40,66 @@ export default function PlayerSearch(props) {
           </div>
           {index === props.index && (
             <table className="selected-player-info-stats">
-              <tr>
-                <th>HT</th>
-                <th>WT</th>
-              </tr>
-              <tr>
-                <td>{props.height}</td>
-                <td>{props.weight}</td>
-              </tr>
-              <tr>
-                <th>GP</th>
-                <th>MPG</th>
-                <th>PPG</th>
-                <th>APG</th>
-                <th>RPG</th>
-                <th>SPG</th>
-                <th>BPG</th>
-              </tr>
-              <tr>
-                <td>{props.gamesPlayed}</td>
-                <td>{props.minutesPerGame}</td>
-                <td>{props.pointsPerGame}</td>
-                <td>{props.assistsPerGame}</td>
-                <td>{props.reboundsPerGame}</td>
-                <td>{props.stealPerGame}</td>
-                <td>{props.blocksPerGame}</td>
-              </tr>
-              <tr>
-                <th>FG%</th>
-                <th>3P%</th>
-              </tr>
-              <tr>
-                <td>{props.fgPercentage}</td>
-                <td>{props.threePercentage}</td>
-              </tr>
-              <tr>
-                <th>BPM</th>
-                <th>Stl%</th>
-                <th>Blk%</th>
-              </tr>
-              <tr>
-                <td>{props.bpm}</td>
-                <td>{props.stlPercentage}</td>
-                <td>{props.blkPercentage}</td>
-              </tr>
+              <thead>
+                <tr>
+                  <th>HT</th>
+                  <th>WT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{props.height}</td>
+                  <td>{props.weight}</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th>GP</th>
+                  <th>MPG</th>
+                  <th>PPG</th>
+                  <th>APG</th>
+                  <th>RPG</th>
+                  <th>SPG</th>
+                  <th>BPG</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{props.gamesPlayed}</td>
+                  <td>{props.minutesPerGame}</td>
+                  <td>{props.pointsPerGame}</td>
+                  <td>{props.assistsPerGame}</td>
+                  <td>{props.reboundsPerGame}</td>
+                  <td>{props.stealPerGame}</td>
+                  <td>{props.blocksPerGame}</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th>FG%</th>
+                  <th>3P%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{props.fgPercentage}</td>
+                  <td>{props.threePercentage}</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th>BPM</th>
+                  <th>Stl%</th>
+                  <th>Blk%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{props.bpm}</td>
+                  <td>{props.stlPercentage}</td>
+                  <td>{props.blkPercentage}</td>
+                </tr>
+              </tbody>
             </table>
           )}
         </div>
