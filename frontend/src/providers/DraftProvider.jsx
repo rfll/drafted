@@ -1,18 +1,17 @@
 import { createContext, useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import draftPositionData from "../data/draftPositionData";
 import useDebounce from "../hooks/useDebounce";
 
 export const draftContext = createContext();
 
-
 export default function DraftProvider(props) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedPlayer, setSelectedPlayer] = useState(
+    draftPositionData.position
+  );
+  const [playerData, setPlayerData] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedPlayer, setSelectedPlayer] = useState(draftPositionData.position);
-  const [draftPosition, setDraftPosition] = useState({
-    ...selectedPlayer
-  });
   const [index, setIndex] = useState(0);
   const [clickedItem, setClickedItem] = useState(index);
 
@@ -20,7 +19,7 @@ export default function DraftProvider(props) {
   const debounceTerm = useDebounce(searchTerm, 200);
 
   // React Beautiful DnD
-  const onDragEnd = result => {
+  const onDragEnd = (result) => {
     const { source, destination } = result;
 
     if (!destination) return;
@@ -31,35 +30,51 @@ export default function DraftProvider(props) {
     let active = selectedPlayer;
 
     if (source.index !== destination.index) {
-      add = active[source.index]
-      active.splice(source.index, 1)
-      active.splice(destination.index, 0, add)
-      setSelectedPlayer(active)
+      add = active[source.index];
+      active.splice(source.index, 1);
+      active.splice(destination.index, 0, add);
+      setSelectedPlayer(active);
     }
-  }
+  };
 
+  // Server call for player data
   useEffect(() => {
-    // if (!debounceTerm) {
-    //   return setSearchResults([])
-    // }
-
-    axios.get('/db/players').then(response => {
-
+    axios.get("/db/players").then((response) => {
       const players = response.data;
+      setSearchResults([...players]);
+      setPlayerData([...players]);
+    });
+  }, []);
 
-      setSearchResults([...players.filter((c) => c.name.toLowerCase().includes(debounceTerm.toLowerCase()))])
-    })
-
+  // Search function
+  useEffect(() => {
+    setSearchResults([
+      ...playerData.filter((playerInfo) =>
+        playerInfo.name.toLowerCase().includes(debounceTerm.toLowerCase())
+      ),
+    ]);
+    // eslint-disable-next-line
   }, [debounceTerm]);
 
-
   function onClick(e, player) {
+    // Index of player clicked in searchResults
+    const newIndex = searchResults.findIndex(
+      (element) => element.name === player.name
+    );
 
-    const newIndex = searchResults.findIndex(element => element.name === player.name)
+    // Add player object to selectedPlayer array and stores deleted player
+    const deletedPlayer = selectedPlayer.splice(index, 1, player);
+    const [destructedDeletedPlayer] = deletedPlayer;
 
-    selectedPlayer.splice(index, 1, player);
-    searchResults.splice(newIndex, 1)
-    setIndex(index + 1)
+    // When a player is being replaced on the draft board, return them to the search array
+    if (destructedDeletedPlayer.name) {
+      playerData.push(destructedDeletedPlayer);
+    }
+
+    // searchResults.splice(newIndex, 1);
+    playerData.splice(newIndex, 1);
+    setSearchResults(playerData.sort((a,b) => (a.lastName > b.lastName) ? 1 : ((b.lastName > a.lastName) ? -1 : 0)));
+    setIndex(index + 1);
 
     setSearchTerm("");
     // setSearchResults([]);
@@ -70,16 +85,20 @@ export default function DraftProvider(props) {
   }
 
   const draftData = {
-    searchTerm, setSearchTerm,
-    searchResults, setSearchResults,
-    selectedPlayer, setSelectedPlayer,
-    draftPosition, setDraftPosition,
+    searchTerm,
+    setSearchTerm,
+    searchResults,
+    setSearchResults,
+    selectedPlayer,
+    setSelectedPlayer,
     onClick,
     clickDraftSlot,
     onDragEnd,
-    index, setIndex,
-    clickedItem, setClickedItem
-  }
+    index,
+    setIndex,
+    clickedItem,
+    setClickedItem,
+  };
 
   return (
     <draftContext.Provider value={draftData}>
