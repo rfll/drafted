@@ -5,16 +5,17 @@
   --secondary-color: #fffffe;
   --tertiary-color: #d9376e;
   --background-color: #eff0f3;
+  --background-color-dark: #0f0e17;
   --border-color: #efefef;
   --text-color: #0d0d0d;
   --text-color-2: #2a2a2a;
-  --test-color: #f25f4c;
+  // --test-color: #f25f4c;
   box-sizing: border-box;
 }
 
 body {
   font-family: "Source Sans Pro", sans-serif;
-  background-color: var(--background-color);
+  background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
 }
@@ -22,13 +23,6 @@ body {
 #root {
   display: flex;
   flex-direction: column;
-}
-
-header {
-  color: var(--text-color);
-  align-self: center;
-  font-size: xx-large;
-  font-weight: 900;
 }
 
 .parent-container {
@@ -55,8 +49,8 @@ input[type="text"] {
   border: 0;
   padding: 0.5rem 0.5rem 0.5rem 3rem;
   /* color: var(--border-color); */
-  font-weight: 700;
-  font-size: 1.5rem;
+  // font-weight: 700;
+  font-size: 1.1rem;
   text-align: left;
 }
 
@@ -73,9 +67,9 @@ input[type="text"]:focus {
   /* margin-top: 10px; */
   padding: 20px;
   margin: 10px;
-  background-color: #fffffe;
+  background-color: var(--secondary-color);
   border-radius: 15px;
-  border: solid var(--text-color-2) 2px;
+  border: solid var(--border-color) 2px;
   max-height: 664px;
   overflow-y: scroll;
 }
@@ -89,7 +83,7 @@ input[type="text"]:focus {
   height: 70px;
   background-color: var(--primary-color-dull-clicked);
   overflow: hidden;
-  /* border: solid #d95b00 2px; */
+  // border: solid #d95b00 2px;
   border-radius: 10px;
   cursor: grab;
 }
@@ -151,11 +145,11 @@ input[type="text"]:focus {
   flex-direction: column;
   // justify-content: space-between;
   // align-items: center;
-  color: #201f2f;
+  // color: #201f2f;
+  color: var(--dark-text);
   height: 300px;
   background-color: var(--primary-color-dull-clicked);
   overflow: hidden;
-  /* border: solid gray 1px; */
   border-radius: 10px;
   transition: all .3s ease;
 }
@@ -175,10 +169,10 @@ input[type="text"]:focus {
 
 .search-components {
   padding: 20px;
-  background-color: #fffffe;
+  background-color: var(--secondary-color);
   border-radius: 15px;
   margin: 10px;
-  border: solid var(--text-color-2) 2px;
+  border: solid var(--border-color) 2px;
   max-height: 664px;
   overflow-y: scroll;
 }
