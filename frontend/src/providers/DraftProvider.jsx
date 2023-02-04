@@ -53,12 +53,13 @@ export default function DraftProvider(props) {
         playerInfo.name.toLowerCase().includes(debounceTerm.toLowerCase())
       ),
     ]);
+    console.log('y');
     // eslint-disable-next-line
   }, [debounceTerm]);
 
   function onClick(e, player) {
     // Index of player clicked in searchResults
-    const newIndex = searchResults.findIndex(
+    const newIndex = playerData.findIndex(
       (element) => element.name === player.name
     );
 
