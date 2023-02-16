@@ -18,6 +18,7 @@ body {
   background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
+  overscroll-behavior: none;
 }
 
 #root {
