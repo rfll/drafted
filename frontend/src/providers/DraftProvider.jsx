@@ -13,7 +13,8 @@ export default function DraftProvider(props) {
   const [playerData, setPlayerData] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [index, setIndex] = useState(0);
-  const [clickedItem, setClickedItem] = useState(index);
+  const [clickedItem, setClickedItem] = useState("stats");
+  const [playerProfile, setPlayerProfile] = useState([]);
 
   // This is state
   const debounceTerm = useDebounce(searchTerm, 200);
@@ -79,10 +80,14 @@ export default function DraftProvider(props) {
 
     setSearchTerm("");
     // setSearchResults([]);
+    setPlayerProfile(player);
+    setClickedItem("stats");
   }
 
   function clickDraftSlot(e, player) {
     setIndex(player.index);
+    setPlayerProfile(player);
+    setClickedItem("stats");
   }
 
   const draftData = {
@@ -99,6 +104,8 @@ export default function DraftProvider(props) {
     setIndex,
     clickedItem,
     setClickedItem,
+    playerProfile,
+    setPlayerProfile
   };
 
   return (
