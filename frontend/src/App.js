@@ -1,5 +1,6 @@
 import LiveSearch from "./components/LiveSearch";
 import DraftForm from "./components/DraftForm";
+import PlayerProfile from "./components/PlayerProfile";
 import { draftContext } from "./providers/DraftProvider";
 import { DragDropContext } from "react-beautiful-dnd";
 import {
@@ -19,7 +20,10 @@ function App() {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="parent-container">
-        <LiveSearch />
+        <div className="left-column">
+          <LiveSearch />
+          <PlayerProfile />
+        </div>
         <DraftForm />
         <div className="share-buttons">
           <TwitterShareButton
