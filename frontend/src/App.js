@@ -25,25 +25,22 @@ function App() {
           <PlayerProfile />
         </div>
         <DraftForm />
-        <div className="share-buttons">
+        <div className="buttons-social">
           <TwitterShareButton
             title={"Drafted Big Board"}
             url={window.location.href}
-            className="twitter-share"
           >
             <TwitterIcon size={42} borderRadius={18} />
           </TwitterShareButton>
           <FacebookShareButton
             title={"Drafted Big Board"}
             url={window.location.href}
-            className="twitter-share"
           >
             <FacebookIcon size={42} borderRadius={18} />
           </FacebookShareButton>
           <RedditShareButton
             title={"Drafted Big Board"}
             url={window.location.href}
-            className="twitter-share"
           >
             <RedditIcon size={42} borderRadius={18} />
           </RedditShareButton>
