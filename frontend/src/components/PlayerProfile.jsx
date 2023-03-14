@@ -19,7 +19,26 @@ export default function PlayerProfile() {
             <div className="profile-information">
               <div className="profile-name">{playerProfile.name}</div>
               <div className="profile-team">{playerProfile.team}</div>
-              <div className="profile-league">{playerProfile.league}</div>
+              {playerProfile.league === "NCAA" && (
+                <div className="profile-league">
+                  {playerProfile.league} {playerProfile.conference}
+                </div>
+              )}
+              {playerProfile.league === "GLI" && (
+                <div className="profile-league">
+                  {playerProfile.leagueTwo}
+                </div>
+              )}
+              {playerProfile.league === "INT" && (
+                <div className="profile-league">
+                  {playerProfile.leagueTwo}
+                </div>
+              )}
+              {playerProfile.league === "OTE" && (
+                <div className="profile-league">
+                  {playerProfile.leagueTwo}
+                </div>
+              )}
               <div className="profile-height">{playerProfile.height}</div>
               <div className="profile-weight">{playerProfile.weight}</div>
             </div>
