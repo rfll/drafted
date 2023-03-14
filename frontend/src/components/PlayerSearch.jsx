@@ -26,7 +26,7 @@ export default function PlayerSearch(props) {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          <div className="selected-player-info-top-row">
+          {/* <div className="selected-player-info-top-row"> */}
             <div className="draft-position">{props.position}</div>
             <div className="selected-player-text">
               <div className="selected-player-name">{props.name}</div>
@@ -38,7 +38,7 @@ export default function PlayerSearch(props) {
               alt={props.name}
             ></img>
           </div>
-        </div>
+        // </div>
       )}
     </Draggable>
   );
