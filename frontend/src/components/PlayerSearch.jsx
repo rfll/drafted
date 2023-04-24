@@ -26,19 +26,17 @@ export default function PlayerSearch(props) {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          {/* <div className="selected-player-info-top-row"> */}
-            <div className="draft-position">{props.position}</div>
-            <div className="selected-player-text">
-              <div className="selected-player-name">{props.name}</div>
-              <div className="selected-player-team">{props.team}</div>
-            </div>
-            <img
-              className="selected-player-image"
-              src={props.img}
-              alt={props.name}
-            ></img>
+          <div className="draft-position">{props.position}</div>
+          <div className="selected-player-text">
+            <div className="selected-player-name">{props.name}</div>
+            <div className="selected-player-team">{props.team}</div>
           </div>
-        // </div>
+          <img
+            className="selected-player-image"
+            src={props.img}
+            alt={props.name}
+          ></img>
+        </div>
       )}
     </Draggable>
   );
