@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { draftContext } from '../providers/DraftProvider';
-import PlayerSearch from './PlayerSearch';
-import PlayerSearchEmpty from './PlayerSearchEmpty';
-import { Droppable } from 'react-beautiful-dnd';
+import { useContext, useEffect, useState } from "react";
+import { draftContext } from "../providers/DraftProvider";
+import PlayerSearch from "./PlayerSearch";
+import PlayerSearchEmpty from "./PlayerSearchEmpty";
+import { Droppable } from "react-beautiful-dnd";
 
 export default function DraftForm(props) {
   const { selectedPlayer, index, clickDraftSlot } = useContext(draftContext);
@@ -23,31 +23,36 @@ export default function DraftForm(props) {
   }
 
   return (
-    <Droppable droppableId='draft-order'>
+    <Droppable droppableId="draft-order">
       {(provided) => {
         return (
-          <div className='selected-players' ref={provided.innerRef} {...provided.droppableProps}>
+          <div
+            className="selected-players"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
             {selectedPlayer.map((player, playerIndex) => {
-
               return (
-                <div className='draft-position-container' key={playerIndex}>
-                  {!player.name
-                    ? <PlayerSearchEmpty
+                <div className="draft-position-container" key={playerIndex}>
+                  {!player.name ? (
+                    <PlayerSearchEmpty
                       position={playerIndex + 1}
                       index={playerIndex}
-                      />
-                    : <PlayerSearch
+                    />
+                  ) : (
+                    <PlayerSearch
                       position={playerIndex + 1}
                       index={playerIndex}
                       {...player}
-                    />}
+                    />
+                  )}
                 </div>
-              )
-            })
-            }
+              );
+            })}
             {provided.placeholder}
-          </div>)
+          </div>
+        );
       }}
     </Droppable>
-  )
+  );
 }
