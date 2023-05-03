@@ -9,7 +9,7 @@ The future goal of Drafted is to allow users to save and share their rankings on
 ## Tech Stack
 
 Front-end: Reactjs, SASS
-Back-end: Node.js, Express.js, MongoDB
+<br>Back-end: Node.js, Express.js, MongoDB
 
 Other: Axios
 
