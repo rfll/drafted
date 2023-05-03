@@ -15,5 +15,3 @@ Other: Axios
 
 
 ## Demo
-
-[![Drafted]({image-url})]({[video-url](https://www.loom.com/share/cff1fe9f13cb4ad091d8bc8279264560)} "Drafted")
