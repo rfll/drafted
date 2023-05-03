@@ -25,19 +25,13 @@ export default function PlayerProfile() {
                 </div>
               )}
               {playerProfile.league === "GLI" && (
-                <div className="profile-league">
-                  {playerProfile.leagueTwo}
-                </div>
+                <div className="profile-league">{playerProfile.leagueTwo}</div>
               )}
               {playerProfile.league === "INT" && (
-                <div className="profile-league">
-                  {playerProfile.leagueTwo}
-                </div>
+                <div className="profile-league">{playerProfile.leagueTwo}</div>
               )}
               {playerProfile.league === "OTE" && (
-                <div className="profile-league">
-                  {playerProfile.leagueTwo}
-                </div>
+                <div className="profile-league">{playerProfile.leagueTwo}</div>
               )}
               <div className="profile-height">{playerProfile.height}</div>
               <div className="profile-weight">{playerProfile.weight}</div>
