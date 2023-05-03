@@ -1,4 +1,4 @@
-# Parrot Perch
+# Drafted
 
 Drafted is a single page application built with MongoDB, Express.js, React.js, and Node.js.
 
