@@ -26,10 +26,20 @@ export default function PlayerSearch(props) {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          <div className="draft-position">{props.position}</div>
-          <div className="selected-player-text">
-            <div className="selected-player-name">{props.name}</div>
-            <div className="selected-player-team">{props.team}</div>
+          <div className="left-side">
+            <div className="draft-position-width"><div className="draft-position">{props.position}</div></div>
+            <div className="selected-player-text">
+              <div className="selected-player-name">{props.name}</div>
+              <div className="selected-player-team">{props.team}</div>
+              {props.league === "NCAA" ? (
+                <div className="selected-player-league">
+                  {`${props.league} `}
+                  {props.conference}
+                </div>
+              ) : (
+                <div className="selected-player-league">{props.leagueTwo}</div>
+              )}
+            </div>
           </div>
           <img
             className="selected-player-image"
