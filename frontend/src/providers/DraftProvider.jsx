@@ -86,7 +86,8 @@ export default function DraftProvider(props) {
 
   function clickDraftSlot(e, player) {
     setIndex(player.index);
-    setPlayerProfile(player);
+    // setPlayerProfile(player);
+    !player.name ? setPlayerProfile(playerProfile) : setPlayerProfile(player)
     setClickedItem("stats");
   }
 
