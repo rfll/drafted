@@ -17,3 +17,6 @@ Other: Axios
 ## Demo
 
 !["Drafted Demo"](https://cdn.loom.com/sessions/thumbnails/cff1fe9f13cb4ad091d8bc8279264560-1683082888484-with-play.gif)
+
+https://user-images.githubusercontent.com/106888140/235827158-2d674a7c-4376-4109-9cca-01e828297491.mp4
+
