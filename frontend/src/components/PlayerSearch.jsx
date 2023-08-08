@@ -5,8 +5,6 @@ import { Draggable } from "react-beautiful-dnd";
 export default function PlayerSearch(props) {
   const { clickDraftSlot, index } = useContext(draftContext);
 
-  // console.log(props);
-
   return (
     <Draggable
       draggableId={props.index.toString()}
