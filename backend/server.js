@@ -6,10 +6,6 @@ const axios = require('axios');
 
 app.listen(8080, console.log('Port 8080'));
 
-// let playerData = [];
-
-// app.get('/db/players', (req, res) => {
-
 (async () => {
 
   const uri = `${process.env.DB_URI}`;
@@ -30,8 +26,3 @@ app.listen(8080, console.log('Port 8080'));
   })
 
 })()
-
-// app.get('/db/players', (req, res) => {
-
-//   res.send(playerData);
-// })
