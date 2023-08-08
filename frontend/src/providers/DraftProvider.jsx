@@ -54,7 +54,6 @@ export default function DraftProvider(props) {
         playerInfo.name.toLowerCase().includes(debounceTerm.toLowerCase())
       ),
     ]);
-    console.log('y');
     // eslint-disable-next-line
   }, [debounceTerm]);
 
@@ -73,20 +72,17 @@ export default function DraftProvider(props) {
       playerData.push(destructedDeletedPlayer);
     }
 
-    // searchResults.splice(newIndex, 1);
     playerData.splice(newIndex, 1);
     setSearchResults(playerData.sort((a,b) => (a.lastName > b.lastName) ? 1 : ((b.lastName > a.lastName) ? -1 : 0)));
     setIndex(index + 1);
 
     setSearchTerm("");
-    // setSearchResults([]);
     setPlayerProfile(player);
     setClickedItem("stats");
   }
 
   function clickDraftSlot(e, player) {
     setIndex(player.index);
-    // setPlayerProfile(player);
     !player.name ? setPlayerProfile(playerProfile) : setPlayerProfile(player)
     setClickedItem("stats");
   }
